@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://vjs.zencdn.net/7.16.1/video-js.css" rel="stylesheet">
+  <script src="https://vjs.zencdn.net/7.16.1/video.js"></script>
+  <title>Video.js Example</title>
+</head>
+<body>
+
+  <video
+    id="my-video"
+    class="video-js vjs-default-skin"
+    controls
+    preload="auto"
+    width="640"
+    height="264"
+    data-setup="{}"
+  >
+    <source src="https://ak.picdn.net/shutterstock/videos/1088978143/preview/stock-footage-night-illuminated-flight-over-los-angeles-city-downtown-traffic-aerial-topdown-panorama-k.mp4" type="video/mp4">
+    <source src="https://ak.picdn.net/shutterstock/videos/1093913527/preview/stock-footage-breathtaking-aerial-view-dramatic-mountains-blue-ocean-on-napali-coast-kauai-island-hawaii-usa.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var player = videojs('my-video');
+      player.on('ended', function() {
+        // Switch to the second video
+        player.src([{ type: 'video/mp4', src: 'https://ak.picdn.net/shutterstock/videos/1093913527/preview/stock-footage-breathtaking-aerial-view-dramatic-mountains-blue-ocean-on-napali-coast-kauai-island-hawaii-usa.mp4' }]);
+        player.load(); // Reload the video
+        player.play(); // Start playing the second video
+      });
+    });
+  </script>
+
+</body>
+</html>
